@@ -3,15 +3,18 @@ server:
 
 spring:
   application:
-    name: pig-config-server
+    name: config-server
   profiles:
-    active: dev
+#    active: dev
+    active: native  #必须为native
   cloud:
     config:
       server:
-        git:
-          uri: https://gitee.com/cqzqxq_lxh/pig-config.git
-          default-label: ${spring.profiles.active}   #解决监控down
+        native:
+          search-locations: classpath:/config
+#        git:
+#          uri: https://gitee.com/cqzqxq_lxh/pig-config.git
+#          default-label: ${spring.profiles.active}   #解决监控down
 
 # 关闭安全管理
 management:
@@ -20,14 +23,16 @@ management:
 endpoints:
   health:
     sensitive: false
+#配置隔层 如果是 profiles: native 环境运行一下配置
 ---
 spring:
-  profiles: dev
+#  profiles: dev
+  profiles: native
   rabbitmq:
-    host: 139.224.200.249
-    port: 5682
-    username: pig
-    password: lengleng
+    host: 127.0.0.1
+    port: 5672
+    username: MyRabbitMq
+    password: 123456
 eureka:
   instance:
     prefer-ip-address: true
@@ -37,14 +42,33 @@ eureka:
     serviceUrl:
       defaultZone: http://pig:gip6666@localhost:1025/eureka
     registry-fetch-interval-seconds: 10
+#配置隔层 如果是 profiles: dev 环境运行一下配置
+---
+spring:
+  profiles: dev
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: MyRabbitMq
+    password: 123456
+eureka:
+  instance:
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 20
+  client:
+    serviceUrl:
+      defaultZone: http://pig:gip6666@localhost:1025/eureka
+    registry-fetch-interval-seconds: 10
+#配置隔层 如果是 profiles: prd环境运行一下配置
 ---
 spring:
   profiles: prd
   rabbitmq:
     host: 127.0.0.1
-    port: 5682
-    username: pig
-    password: lengleng
+    port: 5672
+    username: MyRabbitMq
+    password: 123456
   cloud:
     config:
       retry:

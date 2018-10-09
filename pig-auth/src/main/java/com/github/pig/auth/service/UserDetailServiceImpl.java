@@ -25,10 +25,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+
 /**
- * @author lengleng
- * @date 2017/10/26
- * <p>
+ * @author djj
+ * @date 2018-10-9
+ * 用户详情服务  可以用来查询的用户信息
  */
 @Service("userDetailService")
 public class UserDetailServiceImpl implements UserDetailsService {

@@ -31,6 +31,7 @@ import org.springframework.security.config.annotation.web.configurers.Expression
 /**
  * @author lengleng
  * @date 2018/3/10
+ * 安全认证
  */
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER - 1)
 @Configuration
@@ -41,6 +42,7 @@ public class PigSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
     @Autowired
     private MobileSecurityConfigurer mobileSecurityConfigurer;
 
+    //http 安全拦截
     @Override
     public void configure(HttpSecurity http) throws Exception {
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry =
@@ -48,10 +50,14 @@ public class PigSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
                         .loginProcessingUrl("/authentication/form")
                         .and()
                         .authorizeRequests();
+
+
         filterIgnorePropertiesConfig.getUrls().forEach(url -> registry.antMatchers(url).permitAll());
+
         registry.anyRequest().authenticated()
                 .and()
                 .csrf().disable();
+
         http.apply(mobileSecurityConfigurer);
     }
 }

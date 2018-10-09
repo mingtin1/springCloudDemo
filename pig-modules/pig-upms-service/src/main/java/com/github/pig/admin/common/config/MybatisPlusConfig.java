@@ -24,8 +24,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author lengleng
+ * @author
  * @date 2017/10/29
+ * 分页查询插件配置
  */
 @Configuration
 @MapperScan("com.github.pig.admin.mapper")

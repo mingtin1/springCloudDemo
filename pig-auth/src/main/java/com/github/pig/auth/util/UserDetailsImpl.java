@@ -31,8 +31,9 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * @author lengleng
- * @date 2017/10/29
+ * @author djj
+ * @date 2018-10-9
+ * 登录用户信息
  */
 public class UserDetailsImpl implements UserDetails {
     private static final long serialVersionUID = 1L;

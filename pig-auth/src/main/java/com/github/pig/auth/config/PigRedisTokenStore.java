@@ -33,6 +33,7 @@ import java.util.concurrent.TimeUnit;
  * @author lengleng
  * @date 2018/4/13
  * Pipeline is currently not supported for JedisClusterConnection.
+ * JeDeCultStand连接目前不支持流水线。
  */
 @Slf4j
 public class PigRedisTokenStore implements TokenStore {

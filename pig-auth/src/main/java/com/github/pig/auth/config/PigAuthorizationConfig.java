@@ -50,7 +50,7 @@ import java.util.Map;
 /**
  * @author lengleng
  * @date 2017/10/27
- * 认证服务器逻辑实现
+ * auth2认证服务器逻辑实现
  */
 
 @Configuration
@@ -69,6 +69,12 @@ public class PigAuthorizationConfig extends AuthorizationServerConfigurerAdapter
     @Autowired
     private RedisConnectionFactory redisConnectionFactory;
 
+    /**
+     * //1.配置客户端认证方式以及客户端连接参数设置：
+     *
+     * @param clients
+     * @throws Exception
+     */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         JdbcClientDetailsService clientDetailsService = new JdbcClientDetailsService(dataSource);
@@ -77,6 +83,12 @@ public class PigAuthorizationConfig extends AuthorizationServerConfigurerAdapter
         clients.withClientDetails(clientDetailsService);
     }
 
+    /**
+     * 之后注入到认证转换器配置中调用
+     *
+     * @param endpoints
+     * @throws Exception
+     */
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) {
         //token增强配置
