@@ -55,7 +55,8 @@ import java.util.Map;
 
 @Configuration
 @Order(Integer.MIN_VALUE)
-@EnableAuthorizationServer
+@EnableAuthorizationServer //声明一个认证服务器，当用此注解后，应用启动后将自动生成几个Endpoint：
+// （注：其实实现一个认证服务器就是这么简单，加一个注解就搞定，当然真正用到生产环境还是要进行一些配置和复写工作的。）
 public class PigAuthorizationConfig extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
@@ -71,6 +72,7 @@ public class PigAuthorizationConfig extends AuthorizationServerConfigurerAdapter
 
     /**
      * //1.配置客户端认证方式以及客户端连接参数设置：
+     * 在ClientDetailsServiceConfigurer类里面进行配置，可以有in-memory、jdbc等多种读取方式。
      *
      * @param clients
      * @throws Exception
@@ -84,6 +86,7 @@ public class PigAuthorizationConfig extends AuthorizationServerConfigurerAdapter
     }
 
     /**
+     * 声明授权和token的端点以及token的服务的一些配置信息，比如采用什么存储方式、token的有效期等
      * 之后注入到认证转换器配置中调用
      *
      * @param endpoints
@@ -99,11 +102,17 @@ public class PigAuthorizationConfig extends AuthorizationServerConfigurerAdapter
         endpoints
                 .tokenStore(redisTokenStore())
                 .tokenEnhancer(tokenEnhancerChain)
-                .authenticationManager(authenticationManager)
+                .authenticationManager(authenticationManager)//直接注入一个AuthenticationManager，自动开启密码授权类型
                 .reuseRefreshTokens(false)
-                .userDetailsService(userDetailsService);
+                .userDetailsService(userDetailsService);//如果注入UserDetailsService，那么将会启动刷新token授权类型，会判断用户是否还是存活的
     }
 
+    /**
+     * AuthorizationServerSecurityConfigurer：声明安全约束，哪些允许访问，哪些不允许访问
+     *
+     * @param security
+     * @throws Exception
+     */
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security
@@ -141,6 +150,13 @@ public class PigAuthorizationConfig extends AuthorizationServerConfigurerAdapter
 
     /**
      * jwt 生成token 定制化处理
+     * token存储方式共有三种分别是：
+     * <p>
+     * （1）InMemoryTokenStore：存放内存中，不会持久化
+     * <p>
+     * （2）JdbcTokenStore：存放数据库中
+     * <p>
+     * （3）Jwt: json web token
      *
      * @return TokenEnhancer
      */

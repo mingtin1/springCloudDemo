@@ -51,8 +51,11 @@ public class MobileLoginSuccessHandler implements AuthenticationSuccessHandler {
     private ObjectMapper objectMapper;
     @Autowired
     private ClientDetailsService clientDetailsService;
+    // （1）当token创建后，保存起来，以便之后的接受访问令牌的资源可以引用它。
+    // （2）访问令牌用来加载认证
     @Autowired
     private AuthorizationServerTokenServices authorizationServerTokenServices;
+
 
     /**
      * Called when a user has been successfully authenticated.
