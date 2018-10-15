@@ -121,6 +121,7 @@ public class ValidateCodeFilter extends ZuulFilter {
      */
     private void checkCode(HttpServletRequest httpServletRequest) throws ValidateCodeException {
         String code = httpServletRequest.getParameter("code");
+        System.out.println("code="+code);
         if (StrUtil.isBlank(code)) {
             throw new ValidateCodeException("请输入验证码");
         }

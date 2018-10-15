@@ -19,7 +19,6 @@ package com.github.pig.admin.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import com.github.pig.admin.mapper.SysUserMapper;
@@ -39,7 +38,6 @@ import com.github.pig.common.constant.SecurityConstants;
 import com.github.pig.common.constant.enums.EnumSmsChannelTemplate;
 import com.github.pig.common.util.Query;
 import com.github.pig.common.util.R;
-import com.github.pig.common.util.UserUtils;
 import com.github.pig.common.util.template.MobileMsgTemplate;
 import com.github.pig.common.vo.MenuVO;
 import com.github.pig.common.vo.SysRole;
@@ -181,7 +179,11 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
      */
     @Override
     public void saveImageCode(String randomStr, String imageCode) {
-        redisTemplate.opsForValue().set(SecurityConstants.DEFAULT_CODE_KEY + randomStr, imageCode, SecurityConstants.DEFAULT_IMAGE_EXPIRE, TimeUnit.SECONDS);
+        redisTemplate.opsForValue().set(
+                SecurityConstants.DEFAULT_CODE_KEY + randomStr,
+                imageCode,
+                SecurityConstants.DEFAULT_IMAGE_EXPIRE,//过期时间
+                TimeUnit.SECONDS);
     }
 
     /**

@@ -41,6 +41,7 @@ import java.util.Map;
 /**
  * @author lengleng
  * 前端密码处理器
+ * 过滤器修改转发的url
  */
 @Slf4j
 @RefreshScope

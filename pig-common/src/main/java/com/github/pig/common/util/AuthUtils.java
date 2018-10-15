@@ -65,7 +65,7 @@ public class AuthUtils {
 
     /**
      * *从header 请求中的clientId/clientsecect
-     *
+     *  第一次登录验证zuul跳转
      * @param request
      * @return
      * @throws IOException

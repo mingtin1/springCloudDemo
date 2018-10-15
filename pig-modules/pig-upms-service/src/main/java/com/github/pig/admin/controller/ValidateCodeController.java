@@ -49,6 +49,7 @@ public class ValidateCodeController {
 
     /**
      * 创建验证码
+     * 流程
      *
      * @param request request
      * @throws Exception
@@ -57,13 +58,16 @@ public class ValidateCodeController {
     public void createCode(@PathVariable String randomStr, HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         Assert.isBlank(randomStr, "机器码不能为空");
+        //设置响应头
         response.setHeader("Cache-Control", "no-store, no-cache");
         response.setContentType("image/jpeg");
         //生成文字验证码
         String text = producer.createText();
         //生成图片验证码
         BufferedImage image = producer.createImage(text);
+        //保存图片信息
         userService.saveImageCode(randomStr, text);
+        //使用流的方式响应
         ServletOutputStream out = response.getOutputStream();
         ImageIO.write(image, "JPEG", out);
         IOUtils.closeQuietly(out);
