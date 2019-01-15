@@ -1,5 +1,5 @@
 /*
- *    Copyright (c) 2018-2025, lengleng All rights reserved.
+ *    Copyright (c) 2018-2025, djj All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -12,24 +12,24 @@
  * Neither the name of the pig4cloud.com developer nor the names of its
  * contributors may be used to endorse or promote products derived from
  * this software without specific prior written permission.
- * Author: lengleng (wangiegie@gmail.com)
+ * Author: djj (wangiegie@gmail.com)
  */
 
 package com.github.pig.common.vo;
 
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
- * @author lengleng
+ * @author djj
  * @date 2017/10/29
  */
 @Data
-public class UserVO implements Serializable {
+public class UserVO extends Wrapper implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -61,7 +61,7 @@ public class UserVO implements Serializable {
      */
     private String delFlag;
     /**
-     * 简介
+     * 手机
      */
     private String phone;
     /**
@@ -82,4 +82,9 @@ public class UserVO implements Serializable {
      * 角色列表
      */
     private List<SysRole> roleList;
+
+    @Override
+    public String getSqlSegment() {
+        return null;
+    }
 }

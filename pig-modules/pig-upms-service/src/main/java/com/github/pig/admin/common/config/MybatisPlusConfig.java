@@ -1,5 +1,5 @@
 /*
- *    Copyright (c) 2018-2025, lengleng All rights reserved.
+ *    Copyright (c) 2018-2025, djj All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -12,7 +12,7 @@
  * Neither the name of the pig4cloud.com developer nor the names of its
  * contributors may be used to endorse or promote products derived from
  * this software without specific prior written permission.
- * Author: lengleng (wangiegie@gmail.com)
+ * Author: djj (wangiegie@gmail.com)
  */
 
 package com.github.pig.admin.common.config;
@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author
- * @date 2017/10/29
+ * @date 2018/10/17
  * 分页查询插件配置
  */
 @Configuration

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  ~    Copyright (c) 2018-2025, lengleng All rights reserved.
+  ~    Copyright (c) 2018-2025, djj All rights reserved.
   ~
   ~ Redistribution and use in source and binary forms, with or without
   ~ modification, are permitted provided that the following conditions are met:
@@ -13,7 +13,7 @@
   ~ Neither the name of the pig4cloud.com developer nor the names of its
   ~ contributors may be used to endorse or promote products derived from
   ~ this software without specific prior written permission.
-  ~ Author: lengleng (wangiegie@gmail.com)
+  ~ Author: djj (wangiegie@gmail.com)
   -->
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -45,6 +45,7 @@
             <artifactId>pig-common</artifactId>
             <version>${pig.version}</version>
         </dependency>
+
         <dependency>
             <groupId>com.github.xjzrc.spring.boot</groupId>
             <artifactId>elastic-job-lite-spring-boot-starter</artifactId>
@@ -60,11 +61,13 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-framework</artifactId>
             <version>${curator.version}</version>
         </dependency>
+
         <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>

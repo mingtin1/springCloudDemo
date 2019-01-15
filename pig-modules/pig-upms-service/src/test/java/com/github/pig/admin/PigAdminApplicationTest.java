@@ -1,5 +1,5 @@
 /*
- *    Copyright (c) 2018-2025, lengleng All rights reserved.
+ *    Copyright (c) 2018-2025, djj All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -12,10 +12,13 @@
  * Neither the name of the pig4cloud.com developer nor the names of its
  * contributors may be used to endorse or promote products derived from
  * this software without specific prior written permission.
- * Author: lengleng (wangiegie@gmail.com)
+ * Author: djj (wangiegie@gmail.com)
  */
 
 package com.github.pig.admin;
+
+import com.github.pig.admin.model.entity.SysDept;
+import com.github.pig.admin.service.SysDeptService;
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,23 +26,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest(classes = PigAdminApplication.class)
 public class PigAdminApplicationTest {
-	@Autowired
-	private StringEncryptor stringEncryptor;
+    @Autowired
+    private StringEncryptor stringEncryptor;
 
-	@Test
-	public void testEnvironmentProperties() {
+    @Test
+    public void testEnvironmentProperties() {
 //		System.out.println(stringEncryptor.encrypt("redis"));
 //		System.out.println(stringEncryptor.encrypt("pig"));
-		System.out.println(stringEncryptor.encrypt("lengleng"));
-		System.out.println(stringEncryptor.encrypt("root"));
+//		System.out.println(stringEncryptor.encrypt("djj"));
+//		System.out.println(stringEncryptor.encrypt("root"));
 //		System.out.println(stringEncryptor.encrypt("g0HJr2Ltrs0k6tJDY6pDI2aVMUCPSWZDTROLcFMs"));
 //		System.out.println(stringEncryptor.encrypt("24760324"));
 //		System.out.println(stringEncryptor.encrypt("175d516debb916d3842d981dd3b76061"));
 //		System.out.println(stringEncryptor.encrypt("101322838"));
 //		System.out.println(stringEncryptor.encrypt("fe6ec1ed3fc45e664ce8ddbf78376ab7"));
-	}
+    }
+
+
 
 }

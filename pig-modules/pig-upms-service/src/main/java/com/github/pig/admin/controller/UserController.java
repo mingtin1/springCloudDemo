@@ -1,5 +1,5 @@
 /*
- *    Copyright (c) 2018-2025, lengleng All rights reserved.
+ *    Copyright (c) 2018-2025, djj All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -12,7 +12,7 @@
  * Neither the name of the pig4cloud.com developer nor the names of its
  * contributors may be used to endorse or promote products derived from
  * this software without specific prior written permission.
- * Author: lengleng (wangiegie@gmail.com)
+ * Author: djj (wangiegie@gmail.com)
  */
 
 package com.github.pig.admin.controller;
@@ -46,7 +46,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author lengleng
+ * @author djj
  * @date 2017/10/28
  */
 @RestController
@@ -175,8 +175,8 @@ public class UserController extends BaseController {
      * @return 用户集合
      */
     @RequestMapping("/userPage")
-    public Page userPage(@RequestParam Map<String, Object> params,UserVO userVO) {
-        return userService.selectWithRolePage(new Query(params),userVO);
+    public Page userPage(@RequestParam Map<String, Object> params, UserVO userVO) {
+        return userService.selectWithRolePage(new Query(params), userVO);
     }
 
     /**

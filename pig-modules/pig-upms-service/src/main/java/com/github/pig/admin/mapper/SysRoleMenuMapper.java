@@ -1,5 +1,5 @@
 /*
- *    Copyright (c) 2018-2025, lengleng All rights reserved.
+ *    Copyright (c) 2018-2025, djj All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
@@ -12,7 +12,7 @@
  * Neither the name of the pig4cloud.com developer nor the names of its
  * contributors may be used to endorse or promote products derived from
  * this software without specific prior written permission.
- * Author: lengleng (wangiegie@gmail.com)
+ * Author: djj (wangiegie@gmail.com)
  */
 
 package com.github.pig.admin.mapper;
@@ -26,7 +26,7 @@ import com.github.pig.admin.model.entity.SysRoleMenu;
   * 角色菜单表 Mapper 接口
  * </p>
  *
- * @author lengleng
+ * @author djj
  * @since 2017-10-29
  */
 public interface SysRoleMenuMapper extends BaseMapper<SysRoleMenu> {

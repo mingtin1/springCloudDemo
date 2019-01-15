@@ -14,7 +14,7 @@
 
 - [入门视频](https://www.bilibili.com/video/av20229859/)  
 
-- [部署文档](https://www.kancloud.cn/lengleng/pig-guide/550736)  
+- [部署文档](https://www.kancloud.cn/djj/pig-guide/550736)  
 
 - [问题反馈](https://gitee.com/log4j/pig/issues)  
 

@@ -34,3 +34,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://pig:gip6666@eureka:1025/eureka
+
